@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="h4">Contacts</h2>
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addLeadModal">Add contact</button>
+</div>
+
+<ul class="list-group mb-3">
+  {% for l in leads %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="{% url 'lead_detail' l.pk %}">{{ l.business_name }}</a>
+      <span class="text-muted small">{{ l.contact_name }}</span>
+    </li>
+  {% empty %}
+    <li class="list-group-item">No contacts yet.</li>
+  {% endfor %}
+</ul>
+
+<div class="modal fade" id="addLeadModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="post" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        {% csrf_token %}
+        {{ form.as_p }}
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

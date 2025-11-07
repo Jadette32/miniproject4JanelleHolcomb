@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h4 mb-2">{{ lead.business_name }}</h2>
+<p class="text-muted mb-3">
+  {{ lead.contact_name }} {{ lead.phone }} {{ lead.email }} {{ lead.address }}
+</p>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="bg-white p-3 rounded shadow-sm">
+      <h5 class="mb-2">Log a call</h5>
+      <form method="post">
+        {% csrf_token %}
+        {{ call_form.as_p }}
+        <button class="btn btn-outline-primary" name="add_call" type="submit">Save call</button>
+      </form>
+      <hr>
+      <ul class="list-group">
+        {% for c in lead.calls.all %}
+          <li class="list-group-item">
+            <strong>{{ c.when }}</strong> — {{ c.outcome }} {% if c.who %}with {{ c.who }}{% endif %}
+            <div class="small text-muted">{{ c.details }}</div>
+          </li>
+        {% empty %}
+          <li class="list-group-item">No calls yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="bg-white p-3 rounded shadow-sm">
+      <h5 class="mb-2">Add a win</h5>
+      <form method="post">
+        {% csrf_token %}
+        {{ win_form.as_p }}
+        <button class="btn btn-success" name="add_win" type="submit">Add win</button>
+      </form>
+      <hr>
+      <ul class="list-group">
+        {% for w in lead.wins.all %}
+          <li class="list-group-item">{{ w.when }} — {{ w.title }}</li>
+        {% empty %}
+          <li class="list-group-item">No wins yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
