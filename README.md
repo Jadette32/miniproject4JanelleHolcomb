@@ -27,7 +27,7 @@ The project, **Creative Systems Support**, is a simple business management tool 
 
 •	Customized **Django Admin** with filters, search, and inlines
 
-•	Added profile fields for **goals, needs, and weekly tasks**
+•	Prepared the structure to later include **goals, needs, and weekly tasks**
 
 •	Used Django’s **built-in authentication** for register, login, and logout
 
