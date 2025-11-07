@@ -1,7 +1,24 @@
 # Creative Systems Support
 
-Creative Systems Support is a small Django web app I built for Mini Project 4. It is a simple system that keeps track of contacts, call notes, and wins for any kind of business or outreach work.
 
+Creative Systems Support is a simple business management web app built with Django for Mini Project 4.
+It’s designed to help organize client relationships, goals, and weekly progress in one place.
+
+The site lets me:
+
+Create and manage client profiles with goals, needs, and notes
+
+Log calls and wins for each client
+
+Store outreach and communication templates
+
+Outline available services and support options
+
+Use a secure login system to protect client information
+
+This project reflects the kind of work I do, helping small business owners bring structure and calm to their workflow.
+Right now, it functions as my personal hub for managing clients and systems.
+Later, it could grow into a shared platform where clients can view their own progress or updates.
 ## Setup
 
 Open a terminal in the project folder and run:
@@ -39,13 +56,16 @@ Then open http://127.0.0.1:8000/
 
 ## Pages
 
+## Pages
 - Home page at `/`
-- Contacts page at `/leads/` with a pop up form
-- Contact detail page at `/leads/<id>/` to log calls and wins
-- Scripts page at `/scripts/`
+- Clients page at `/leads/` with a pop up form
+- Client detail page at `/leads/<id>/` to edit the profile and log calls and wins
+- Templates page at `/scripts/`
 - Wins page at `/wins/`
 - Register at `/register/`, Login at `/login/`, Logout at `/logout/`
 - Admin at `/admin/`
+- Services at `/services/` 
+
 
 ## Project structure
 
