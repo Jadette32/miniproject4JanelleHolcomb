@@ -13,4 +13,6 @@ urlpatterns = [
     path("leads/<int:pk>/", v.lead_detail, name="lead_detail"),
     path("scripts/", v.scripts, name="scripts"),
     path("wins/", v.wins, name="wins"),
+    path("services/", v.services, name="services"),
+
 ]

@@ -26,6 +26,9 @@ def leads(request):
     else:
         form = LeadForm()
     return render(request, "clients/leads.html", {"leads": my_leads, "form": form})
+@login_required
+def services(request):
+    return render(request, "clients/services.html")
 
 @login_required
 def lead_detail(request, pk):
