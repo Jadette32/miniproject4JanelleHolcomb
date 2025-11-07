@@ -21,6 +21,13 @@ class Lead(models.Model):
     source = models.ForeignKey(LeadSource, on_delete=models.SET_NULL, null=True, blank=True)
     notes = models.TextField(blank=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="css_leads")
+
+    # client profile fields
+    goals = models.TextField(blank=True)
+    needs = models.TextField(blank=True)
+    weekly_tasks = models.TextField(blank=True)
+    collaboration_notes = models.TextField(blank=True)
+
     def __str__(self):
         return self.business_name
 
