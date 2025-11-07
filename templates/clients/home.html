@@ -4,16 +4,15 @@
 <div class="p-4 bg-white rounded shadow-sm mb-4">
   <h1 class="h3 mb-2">Creative Systems Support</h1>
   <p class="mb-0">
-    A calm place to get organized. We set clear goals, choose simple next steps, and track real wins.
-    No noise. Just steady progress.
+    A calm place to get organized. Clear goals. Simple next steps. Real wins.
   </p>
 </div>
 
 <div class="row g-3">
   <div class="col-md-4">
     <div class="bg-white p-3 rounded shadow-sm h-100">
-      <h5 class="mb-1">Client experience design</h5>
-      <p class="mb-2">Welcome flow, follow up, and forms that feel human and easy.</p>
+      <h5 class="mb-1">Client experience</h5>
+      <p class="mb-2">Welcome, forms, and follow up that feel human and easy.</p>
       {% if user.is_authenticated %}
         <a class="btn btn-outline-primary btn-sm" href="{% url 'leads' %}">Open clients</a>
       {% else %}
@@ -25,7 +24,7 @@
   <div class="col-md-4">
     <div class="bg-white p-3 rounded shadow-sm h-100">
       <h5 class="mb-1">Creative systems support</h5>
-      <p class="mb-2">Light structure and weekly tasks that fit real life.</p>
+      <p class="mb-2">Light structure and weekly plans that fit real life.</p>
       {% if user.is_authenticated %}
         <a class="btn btn-outline-primary btn-sm" href="{% url 'leads' %}">Start a profile</a>
       {% else %}
@@ -37,8 +36,9 @@
   <div class="col-md-4">
     <div class="bg-white p-3 rounded shadow-sm h-100">
       <h5 class="mb-1">Growth with ease</h5>
-      <p class="mb-2">Small steps, clear templates, honest check ins.</p>
-      <a class="btn btn-outline-secondary btn-sm" href="{% url 'scripts' %}">See templates</a>
+      <p class="mb-2">Small steps. Clear templates. Gentle follow through.</p>
+      <a class="btn btn-outline-secondary btn-sm" href="{% url 'scripts' %}">Templates</a>
+      <a class="btn btn-outline-secondary btn-sm ms-2" href="{% url 'services' %}">Services</a>
     </div>
   </div>
 </div>
