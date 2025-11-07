@@ -66,6 +66,48 @@ Then open http://127.0.0.1:8000/
 - Admin at `/admin/`
 - Services at `/services/` 
 
+## Where each project requirement is met
+
+- Initial comments
+Every major Python file includes my name, class, and project information at the top.
+
+- Proper imports
+Each file only imports what it uses, including models, views, and admin.
+
+- Folder structure
+The project includes one app called clients and follows the correct Django layout with core, templates, and static folders.
+
+- Five pages with templates
+The project includes a home page, clients page, client detail page, templates page, and wins page.
+A services page is also included as an additional section.
+
+- At least one page with a form
+The clients page has a Bootstrap modal that lets me add a new client.
+The client detail page also includes forms to update goals, needs, and tasks.
+
+- Django admin setup
+All models are registered and styled for easy entry with filters, search fields, and inline options.
+
+- Bootstrap usage
+Bootstrap 5 is used in the base layout for clean styling.
+The clients page includes a modal, which fulfills the Bootstrap requirement.
+
+- Register and login system
+The register, login, and logout pages are fully functional.
+Logout uses a secure POST method from the navbar.
+Redirects are set up in core/settings.py with
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+LOGIN_URL = "login"
+
+- Five commits minimum
+The project includes multiple meaningful commits showing the build process step by step.
+
+- requirements.txt
+The file lists all required packages and can be updated with pip freeze.
+
+- README completeness
+This file includes every setup step, Django command, and explanation required by the Mini Project 4 rubric.
 
 ## Project structure
 
@@ -87,3 +129,9 @@ python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
+## Notes
+
+Bootstrap 5 is active on the clients page with a working modal.
+The login system redirects correctly for protected pages.
+Admin shows all models with lists, filters, and inline sections.
+This README includes every command required by the rubric.
