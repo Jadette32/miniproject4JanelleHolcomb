@@ -1,3 +1,7 @@
+# Author: Janelle Holcomb
+# Class: INF 601 Mini Project 4
+# Project: Creative Systems Support
+
 from django.contrib import admin
 from .models import LeadSource, Lead, CallLog, Win
 

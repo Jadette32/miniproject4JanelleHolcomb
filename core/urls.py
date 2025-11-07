@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Author: Janelle Holcomb
+# Mini Project 4
+
 from django.contrib import admin
 from django.urls import path
 from clients import views as v

@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Author: Janelle Holcomb
+# Mini Project 4
+
 """Django settings for core project (Mini Project 4)."""
 from pathlib import Path
 

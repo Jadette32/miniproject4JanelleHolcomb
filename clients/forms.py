@@ -1,3 +1,7 @@
+# Author: Janelle Holcomb
+# Class: INF 601 Mini Project 4
+# Project: Creative Systems Support
+
 from django import forms
 from .models import Lead, CallLog, Win
 from django.contrib.auth.forms import UserCreationForm

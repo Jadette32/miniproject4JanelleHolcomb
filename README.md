@@ -1,137 +1,131 @@
-# Creative Systems Support
+# Mini Project 4 - Django Web App
+**Author:** Janelle Holcomb  
+**Class:** INF601 - Advanced Programming in Python (Mini Project 4)
+---
+## Project Overview
 
+This Django app was built for my INF601 class. It includes authentication, forms, Bootstrap styling, and a SQLite database with connected models. I kept the layout clean and organized while focusing on clarity and purpose. 
 
-Creative Systems Support is a simple business management web app built with Django for Mini Project 4.
-It’s designed to help organize client relationships, goals, and weekly progress in one place.
+The project, **Creative Systems Support**, is a simple business management tool that helps organize client information, track goals, log calls and wins, and outline services. It demonstrates Django’s full MVC structure and authentication system while keeping everything lightweight and easy to use.
 
-The site lets me:
+### Pages
+1.	**Home** (`/`) – overview of the app and quick navigation links
+2.	**Clients** (`/leads/`) – list of all clients with a **Bootstrap modal** to add new clients
+3.	**Client Detail** (`/leads/<id>/`) – edit client profiles, goals, and notes; log calls or wins
+4.	**Wins** (`/wins/`) – displays all logged wins for each client
+5.	**Scripts** (`/scripts/`) – placeholder page for outreach or communication templates
+6.	**Services** (`/services/`) – lists the services and systems offered
+7.	**Register** (`/register/`) – create a new user account
+8.	**Login** (`/login/`) – log into an existing account
+9.	**Logout** (`/logout/`) – securely log out and redirect to home
+10.	**Admin** (`/admin/`) – manage all models in the Django admin panel
+---
+## Unique Touches
+•	Renamed “Leads” to **Clients** to fit the real purpose of my project
 
-Create and manage client profiles with goals, needs, and notes
+•	Added **Bootstrap 5** styling and a working modal on the Clients page
 
-Log calls and wins for each client
+•	Customized **Django Admin** with filters, search, and inlines
 
-Store outreach and communication templates
+•	Added profile fields for **goals, needs, and weekly tasks**
 
-Outline available services and support options
+•	Used Django’s **built-in authentication** for register, login, and logout
 
-Use a secure login system to protect client information
+•	Designed the layout to match my calm and organized brand style
 
-This project reflects the kind of work I do, helping small business owners bring structure and calm to their workflow.
-Right now, it functions as my personal hub for managing clients and systems.
-Later, it could grow into a shared platform where clients can view their own progress or updates.
-## Setup
+---
+## Requirements
+Before running, make sure you have:
 
-Open a terminal in the project folder and run:
+	Python **3.13+**
 
+	`pip` (Python package manager)
+
+	`venv` (for creating a virtual environment)
+
+	Django **5.2.8**
+
+---
+## Installation and Setup
+### 1. Create and activate a virtual environment
 ```bash
 python -m venv .venv
-# Windows
-.\.venv\Scripts\Activate.ps1
-# Mac or Linux
+```
+## Windows
+```bash
+.venv\Scripts\Activate.ps1
+```
+## macOS/Linux
+```bash
 source .venv/bin/activate
+```
+### 2. Install all dependencies
+```bash
 pip install -r requirements.txt
 ```
+This installs all required packages, including Django.
 
-If you ever need to update the list of packages, run:
+## Setting Up the Database
+Run these commands in order to create and initialize the SQLite database:
+```bash
+python manage.py makemigrations
 
+python manage.py migrate
+
+python manage.py createsuperuser
+
+```You can then log in to the admin panel at:
+
+```cpp
+
+http://127.0.0.1:8000/admin/
+```
+---
+## Running the Django Development Server
+```bash
+python manage.py runserver
+```
+Then open your web browser and go to:
+```cpp
+http://127.0.0.1:8000/
+```
+
+You’ll be able to register, log in, view clients, and log wins.
+
+## Tech Details
+•	**Template Structure:** `base.html` defines the main layout with Bootstrap JS & CSS. All other templates extend this file.
+
+•	**Forms:** Used for adding and editing clients. Form data is validated automatically through Django’s built-in form handling.
+
+•	**Database:** SQLite database with models for `LeadSource`, `Lead`, `CallLog`, and `Win`, connected by foreign keys.
+
+•	**Authentication:** Managed through Django’s built-in user authentication system.
+
+•	**Bootstrap:** Used for responsive layouts, navigation, and a **modal** feature on the Clients page.
+
+•	**Styling:** Clean layout with white space and soft color tones for a calm visual style.
+
+---
+## Updating Dependencies
+If new packages are added later, update the requirements file:
 ```bash
 pip freeze > requirements.txt
 ```
+---
+## Next Steps
+•	**Add client login access** so each client can view their own goals and updates 
 
-## Setting up the database
+•	**Include progress tracking dashboards** for clients
 
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
+•	**Add file uploads or shared notes** for collaboration
+
+•	**Refine the home page design** to better reflect my brand and service focus
+
+This version meets all the Mini Project 4 requirements and shows a working, organized Django web app with full authentication, forms, and Bootstrap integration.
+## Instructor Header Reminder
+Add this to the **top of every .py** file:
+```python
+# INF601 - Advanced Programming in Python
+# Author: Janelle Holcomb
+# Mini Project 4
 ```
-
-## Running the server
-
-```bash
-python manage.py runserver
-```
-
-Then open http://127.0.0.1:8000/
-
-## Pages
-
-## Pages
-- Home page at `/`
-- Clients page at `/leads/` with a pop up form
-- Client detail page at `/leads/<id>/` to edit the profile and log calls and wins
-- Templates page at `/scripts/`
-- Wins page at `/wins/`
-- Register at `/register/`, Login at `/login/`, Logout at `/logout/`
-- Admin at `/admin/`
-- Services at `/services/` 
-
-## Where each project requirement is met
-
-- Initial comments
-Every major Python file includes my name, class, and project information at the top.
-
-- Proper imports
-Each file only imports what it uses, including models, views, and admin.
-
-- Folder structure
-The project includes one app called clients and follows the correct Django layout with core, templates, and static folders.
-
-- Five pages with templates
-The project includes a home page, clients page, client detail page, templates page, and wins page.
-A services page is also included as an additional section.
-
-- At least one page with a form
-The clients page has a Bootstrap modal that lets me add a new client.
-The client detail page also includes forms to update goals, needs, and tasks.
-
-- Django admin setup
-All models are registered and styled for easy entry with filters, search fields, and inline options.
-
-- Bootstrap usage
-Bootstrap 5 is used in the base layout for clean styling.
-The clients page includes a modal, which fulfills the Bootstrap requirement.
-
-- Register and login system
-The register, login, and logout pages are fully functional.
-Logout uses a secure POST method from the navbar.
-Redirects are set up in core/settings.py with
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
-LOGIN_URL = "login"
-
-- Five commits minimum
-The project includes multiple meaningful commits showing the build process step by step.
-
-- requirements.txt
-The file lists all required packages and can be updated with pip freeze.
-
-- README completeness
-This file includes every setup step, Django command, and explanation required by the Mini Project 4 rubric.
-
-## Project structure
-
-```
-core/       project settings and urls
-clients/    app code for models, forms, views, and admin
-templates/  html templates including base and page templates
-static/     any custom style files or images
-requirements.txt
-README.md
-manage.py
-```
-
-## Common commands
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
-```
-## Notes
-
-Bootstrap 5 is active on the clients page with a working modal.
-The login system redirects correctly for protected pages.
-Admin shows all models with lists, filters, and inline sections.
-This README includes every command required by the rubric.
